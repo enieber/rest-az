@@ -1,6 +1,7 @@
 'use strict';
 
-module.exports = function Empresa(sequelize, DataTypes) {
+
+Empresa.exports = function(sequelize, DataTypes) {
     var Empresa = sequelize.define('empresa', {
         idEmpresa: {
             type: DataTypes.INTEGER,

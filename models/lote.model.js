@@ -1,6 +1,8 @@
 'use strict';
 
-module.exports = function Lote(sequelize, DataTypes, Leilao) {
+const Leilao = require('leilao.model.js');
+
+module.exports = function(sequelize, DataTypes, Leilao) {
     var Lote = sequelize.define('lote', {
         idLeilao: {
             type: Leilao.idLeilao,
