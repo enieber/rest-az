@@ -9,7 +9,7 @@ server.register(
                 database: 'az',
                 user: 'postgres',
                 pass: 'jmj123',
-                dialect: 'postgresql',
+                dialect: 'postgres',
                 port: 5432,
                 models: 'models/*.model.js',
                 sequelize: {
