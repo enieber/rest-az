@@ -1,9 +1,6 @@
 'use strict';
 
-const Empresa = require('empresa.model.js');
-const Leilao = require('leilao.model.js');
-
-Comprador.exports = function(sequelize, DataTypes, Empresa, Leilao) {
+module.exports = function(sequelize, DataTypes, Empresa, Leilao) {
     var Comprador = sequelize.define('comprador', {
         idComprador: {
             type: DataTypes.INTEGER,
@@ -11,14 +8,17 @@ Comprador.exports = function(sequelize, DataTypes, Empresa, Leilao) {
             unique: true
         },
         idEmpresa: {
-            type: Empresa.idEmpresa,
+            type: DataTypes.INTEGER,
             required: true
         },
         idLeilao: {
-            type: Leilao.idLeilao,
+            type: DataTypes.INTEGER,
             required: true
         }
     });
 
+    Comprador.sync().then(function (){
+      console.log("Comprador ok");
+    });
     return Comprador;
 }

@@ -1,11 +1,9 @@
 'use strict';
 
-const Empresa = require('empresa.model.js');
-
 module.exports = function(sequelize, DataTypes, Empresa) {
     var Leilao = sequelize.define('leilao', {
-        id_empresa: {
-            type: Empresa.idEmpresa,
+        idEmpresa: {
+            type: DataTypes.STRING,
             required: true
         },
         codigo: {
@@ -22,12 +20,17 @@ module.exports = function(sequelize, DataTypes, Empresa) {
             required: true
         },
         inicioPrevisto: {
-            type: DataTypes.timestamp,
+            type: DataTypes.DATE,
             required: true
         },
         timestamps: true,
         createdAt: true,
         updatedAt: 'updateTimestamp'
     });
+
+    Leilao.sync().then(function (){
+      console.log("Leilao ok");
+    });
+    
     return Leilao;
 }

@@ -1,11 +1,9 @@
 'use strict';
 
-const Leilao = require('leilao.model.js');
-
 module.exports = function(sequelize, DataTypes, Leilao) {
     var Lote = sequelize.define('lote', {
         idLeilao: {
-            type: Leilao.idLeilao,
+            type: DataTypes.INTEGER,
             required: true
         },
         numero: DataTypes.INTEGER,
@@ -16,5 +14,10 @@ module.exports = function(sequelize, DataTypes, Leilao) {
         quantidade: DataTypes.NUMERIC,
         valor: DataTypes.NUMERIC
     });
+
+    Lote.sync().then(function (){
+      console.log("Lote ok");
+    });
+
     return Lote;
 }

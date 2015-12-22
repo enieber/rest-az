@@ -1,7 +1,8 @@
+(function(){
 'use strict';
 
 
-Empresa.exports = function(sequelize, DataTypes) {
+module.exports = function(sequelize, DataTypes) {
     var Empresa = sequelize.define('empresa', {
         idEmpresa: {
             type: DataTypes.INTEGER,
@@ -41,9 +42,14 @@ Empresa.exports = function(sequelize, DataTypes) {
         bairro: DataTypes.STRING(64),
         cep: DataTypes.STRING(16),
         timestamps: true,
-        createdAt: false,
-        updatedAt: 'updateTimestamp'
+        createdAt: false
+
+    });
+
+    Empresa.sync().then(function (){
+      console.log("Empresa ok");
     });
 
     return Empresa;
 }
+})();
